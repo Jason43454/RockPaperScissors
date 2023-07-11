@@ -54,6 +54,7 @@ function game(){
       alert(`Sorry you lost GAME OVER! \nPlayer score: ${playerScore}  Computer score: ${ComputerScore}`);
  }
 
+window.onload=gamerun;
 let playerScore=0;
 let ComputerScore=0;
 const button=document.querySelector("button");
