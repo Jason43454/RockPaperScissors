@@ -11,7 +11,7 @@ switch (choice){
 }
 
 function enterChoice(){
-  let playerChoice=prompt("Enter a choice","");
+  let playerChoice=prompt("Enter a choice or choose cancel to exit","");
   playerChoice=playerChoice.toLowerCase();
   while (playerChoice!="rock" && playerChoice!="paper" && playerChoice!="scissors" ){
 
@@ -54,12 +54,12 @@ function game(){
       alert(`Sorry you lost GAME OVER! \nPlayer score: ${playerScore}  Computer score: ${ComputerScore}`);
  }
 
-window.onload=gamerun;
+
 let playerScore=0;
 let ComputerScore=0;
 const button=document.querySelector("button");
 button.addEventListener("click",gamerun);
-
+window.onload= function () {setTimeout(function(){gamerun();},100);} 
 
 function gamerun(){
   while (true){
