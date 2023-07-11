@@ -58,7 +58,7 @@ let playerScore=0;
 let ComputerScore=0;
 const button=document.querySelector("button");
 button.addEventListener("click",gamerun);
-window.onload=gamerun;
+
 
 function gamerun(){
   while (true){
