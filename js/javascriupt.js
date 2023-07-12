@@ -1,69 +1,69 @@
 function getComputerChoice() {
-const choice=Math.floor(Math.random()*3);
-switch (choice){
-  case 0: 
-    return "rock";
-  case 1:
-    return "paper";
-  case 2:
-    return "scissors";
+  const computerchoice=Math.floor(Math.random()*3);
+  switch (computerchoice){
+    case 0: 
+      return "rock";
+    case 1:
+      return "paper";
+    case 2:
+      return "scissors";
 }
 }
 
-function enterChoice(){
+function getPlayerChoice(){
   let playerChoice=prompt("Enter a choice or choose cancel to exit","");
   playerChoice=playerChoice.toLowerCase();
   while (playerChoice!="rock" && playerChoice!="paper" && playerChoice!="scissors" ){
-
     alert("Invalid input please try again");
     playerChoice=prompt("Enter a choice"," ").toLowerCase();
   }
   return playerChoice;
 }
-function Playfivetimes (){
+
+function playFiveTimes (){
   for (let attempts=5; attempts>0;--attempts){
     const computerChoice=getComputerChoice();
     if (attempts==1){
       alert(`Last attempt good luck`);
     }
-    const choice=enterChoice();
+    const playerChoice=getPlayerChoice();
 
-    if (choice==computerChoice)
-    alert(`Its a tie no winners today \nPlayer score: ${playerScore}  Computer score: ${ComputerScore}`);
+    if (playerChoice==computerChoice)
+    alert(`Its a tie no winners today \n
+    Player score: ${playerScore} Computer score: ${ComputerScore}`);
 
-    else if (choice=="rock" && computerChoice=="scissors" || choice=="scissors" && computerChoice=="paper" || choice=="paper" && computerChoice=="rock"){
-      ++playerScore;
-      alert(`You won this round good job the computer chose ${computerChoice} \nPlayer score: ${playerScore}  Computer score: ${ComputerScore}`);
+    else if (playerChoice=="rock" && computerChoice=="scissors" ||
+             playerChoice=="scissors" && computerChoice=="paper" ||
+             playerChoice=="paper" && computerChoice=="rock"){
+               ++playerScore;
+               alert(`You won this round good job the computer chose ${computerChoice} \n
+               Player score: ${playerScore}  Computer score: ${ComputerScore}`);
     }
     else{
       ++ComputerScore;
-      alert(`You lost this round better luck next time the computer chose ${computerChoice} \nPlayer score: ${playerScore}  Computer score: ${ComputerScore}`);
+      alert(`You lost this round better luck next time the computer chose ${computerChoice} \n
+      Player score: ${playerScore}  Computer score: ${ComputerScore}`);
     }   
   }
-
 }
 
-function game(){
+function runGame(){
   alert("Try to beat the computer in a best of five.");
-  Playfivetimes();
+  playFiveTimes();
   if (playerScore>ComputerScore)
-      alert(`Congratulations You won the game \nPlayer score: ${playerScore}  Computer score: ${ComputerScore}`);
+      alert(`Congratulations You won the game \n
+      Player score: ${playerScore}  Computer score: ${ComputerScore}`);
   else if (playerScore==ComputerScore)
-      alert(`It ended in a tie no one won the game \nPlayer score: ${playerScore}  Computer score: ${ComputerScore}`);
+      alert(`It ended in a tie no one won the game \n
+      Player score: ${playerScore}  Computer score: ${ComputerScore}`);
   else 
-      alert(`Sorry you lost GAME OVER! \nPlayer score: ${playerScore}  Computer score: ${ComputerScore}`);
+      alert(`Sorry you lost GAME OVER! \n
+      Player score: ${playerScore}  Computer score: ${ComputerScore}`);
  }
 
-
-let playerScore=0;
-let ComputerScore=0;
-const button=document.querySelector("button");
-button.addEventListener("click",gamerun);
-window.onload= function () {setTimeout(function(){gamerun();},100);} 
-
-function gamerun(){
+function askToRepeatGame(){
   while (true){
-    game();
+    runGame();
     if(!confirm("Would you like to play again?")){
       alert("Thanks for playing see you next time");
       break;
@@ -72,6 +72,17 @@ function gamerun(){
     ComputerScore=0;
   }
 }
+
+let playerScore=0;
+let ComputerScore=0;
+const button=document.querySelector("button");
+button.addEventListener("click",askToRepeatGame);
+
+/* setTimeout is used to help delay the execution of the main game giving the page and its
+   elements time to load */
+window.onload= function () {setTimeout(function(){askToRepeatGame();},100);} 
+
+
 
 
  
