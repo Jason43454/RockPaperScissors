@@ -43,6 +43,7 @@ body {
    padding: 10px;
    background-color: white;
    transition: all 0.3s ease;
+   min-width: 100px;
  }
 
  .image:hover{
@@ -83,7 +84,7 @@ body {
   display: flex;
   text-align: center;
   bottom: 0;
-  position: absolute;
+  position: fixed;
   justify-content: center;
   align-items: center;
   padding: 15px;
