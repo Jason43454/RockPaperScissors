@@ -1,3 +1,9 @@
+* {
+   box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+ }
+
 body {
     background-image: url(https://images.pexels.com/photos/479453/pexels-photo-479453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
     background-size: cover;
@@ -6,6 +12,133 @@ body {
     background-position: center center;
  }
 
- h1 {
-    color: rgb(114, 44, 44);
+ .header {
+    color: red;
+    text-align: center;
+    background-color: #1F2937;
+    position: sticky;
+    padding: 25px 0px;
+    
+    
  }
+
+ .layer1 {
+   display: flex;
+   margin: 90px 0px;
+   justify-content: center;
+ }
+
+.icons{
+    display: flex;
+    justify-content: space-around;
+    background-color: lightgrey;
+    border: solid #1F2937;
+    padding: 20px;
+  }
+
+
+ .image {
+   border: solid #1F2937;
+   max-width: 25%;
+   padding: 10px;
+   background-color: white;
+   transition: all 0.3s ease;
+ }
+
+ .image:hover{
+  background-color: #1F2937;
+  transform: scale(1.1);
+  border-color: red;
+  box-shadow: 0 0 1rem red;
+
+ }
+
+ img {
+  height: 250px;
+  max-width: 100%;
+  min-width: 50px;
+  
+ }
+
+ .content {
+  text-align: center;
+  color: #1F2937;
+ }
+
+ .content h1 {
+  margin-bottom: 20px;
+ }
+
+.layer2 {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  gap: 4rem;
+  padding: 40px 0px;
+  color: #1F2937;
+  
+ }
+
+ .bottom{
+  display: flex;
+  text-align: center;
+  bottom: 0;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  width: 100%;
+  gap: 10px;
+  background-color: #1F2937;
+  color: white;
+  
+ }
+
+ .bottom img{
+  max-height: 22px;
+  max-width: 22px;
+  min-width: 0;
+ }
+ 
+ .back.active {
+  background-color: black;
+  opacity: 0.6;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+ }
+
+.popup.active{
+  position:absolute;
+  bottom: 50%;
+  left: 50%;
+  height: 220px;
+  width: 280px;
+  background-color: #1F2937;
+  border-radius: 1.5rem;
+  z-index: 1;
+  transform: translate(-50%, 50%);
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+}
+
+.message {
+  color: lightgrey;
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+div button{
+  background-color: lightgrey;
+  border-radius: 1.5rem;
+  padding: 10px 15px;
+}
+

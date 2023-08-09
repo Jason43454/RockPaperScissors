@@ -10,77 +10,69 @@ function getComputerChoice() {
 }
 }
 
-function getPlayerChoice(){
-  let playerChoice=prompt("Enter a choice or choose cancel to exit","");
-  playerChoice=playerChoice.toLowerCase();
-  while (playerChoice!="rock" && playerChoice!="paper" && playerChoice!="scissors" ){
-    alert("Invalid input please try again");
-    playerChoice=prompt("Enter a choice"," ").toLowerCase();
-  }
-  return playerChoice;
-}
-
-function playFiveTimes (){
-  for (let attempts=5; attempts>0;--attempts){
-    const computerChoice=getComputerChoice();
-    if (attempts==1){
-      alert(`Last attempt good luck`);
+function playGame (icon){
+  const computerChoice=getComputerChoice();
+  document.querySelector(".CPU img").setAttribute("src", document.querySelector(`[alt=${computerChoice}]`).getAttribute("src"))
+  const playerChoice=icon.firstElementChild.getAttribute("alt");
+  document.querySelector(".player img").setAttribute("src", document.querySelector(`[alt=${playerChoice}]`).getAttribute("src"))
+    if (playerChoice==computerChoice){
+      document.querySelector(".result").textContent=`! Its a tie ! `;
+      document.querySelector(".outcome").textContent="No winners today";
     }
-    const playerChoice=getPlayerChoice();
-
-    if (playerChoice==computerChoice)
-    alert(`Its a tie no winners today \n
-    Player score: ${playerScore} Computer score: ${ComputerScore}`);
-
+ 
     else if (playerChoice=="rock" && computerChoice=="scissors" ||
              playerChoice=="scissors" && computerChoice=="paper" ||
              playerChoice=="paper" && computerChoice=="rock"){
                ++playerScore;
-               alert(`You won this round good job the computer chose ${computerChoice} \n
-               Player score: ${playerScore}  Computer score: ${ComputerScore}`);
+               pscore.textContent=`Player: ${playerScore}`
+               document.querySelector(".result").textContent=`! You Won ! `;
+               document.querySelector(".outcome").textContent=`Well done ${playerChoice} beats ${computerChoice} `;
+  
     }
     else{
       ++ComputerScore;
-      alert(`You lost this round better luck next time the computer chose ${computerChoice} \n
-      Player score: ${playerScore}  Computer score: ${ComputerScore}`);
+      cscore.textContent=`CPU: ${ComputerScore}`
+      document.querySelector(".result").textContent=`! You Lost ! `;
+      document.querySelector(".outcome").textContent=`Better luck next time ${playerChoice} beats ${computerChoice}`;
     }   
   }
-}
+
 
 function runGame(){
-  alert("Try to beat the computer in a best of five.");
-  playFiveTimes();
-  if (playerScore>ComputerScore)
-      alert(`Congratulations You won the game \n
-      Player score: ${playerScore}  Computer score: ${ComputerScore}`);
-  else if (playerScore==ComputerScore)
-      alert(`It ended in a tie no one won the game \n
-      Player score: ${playerScore}  Computer score: ${ComputerScore}`);
-  else 
-      alert(`Sorry you lost GAME OVER! \n
-      Player score: ${playerScore}  Computer score: ${ComputerScore}`);
- }
+  attempt++;
+  playGame(this);
+  if (attempt==5){
+    let result="";
+    if (playerScore>ComputerScore)
+    result=`Congratulations You won the game`;
+    else if (playerScore==ComputerScore)
+    result=`It ended in a tie no one won the game`;
+    else 
+    result=`Sorry you lost GAME OVER`;
 
-function askToRepeatGame(){
-  while (true){
-    runGame();
-    if(!confirm("Would you like to play again?")){
-      alert("Thanks for playing see you next time");
-      break;
-    }
-    playerScore=0;
-    ComputerScore=0;
-  }
+  const background=document.querySelector(".back");
+  background.classList.add("active");
+  const popup=document.createElement("div");
+  const message=document.createElement("p");
+  message.textContent=result;
+  message.classList.add("message");
+  popup.appendChild(message);
+  const reset=document.createElement("button");
+  reset.addEventListener("click",function(){window.location.reload()});
+  reset.textContent="Play again";
+  popup.appendChild(reset);
+  popup.classList.add("popup", "active");
+  document.querySelector("body").appendChild(popup);
 }
+  }
 
 let playerScore=0;
 let ComputerScore=0;
-const button=document.querySelector("button");
-button.addEventListener("click",askToRepeatGame);
-
-/* setTimeout is used to help delay the execution of the main game giving the page and its
-   elements time to load */
-window.onload= function () {setTimeout(function(){askToRepeatGame();},100);} 
+const pscore=document.querySelector(".player h1");
+const cscore=document.querySelector(".CPU h1")
+let attempt=0;
+const game=document.querySelectorAll(".image");
+game.forEach(function(element){element.addEventListener("click", runGame)});
 
 
 
