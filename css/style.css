@@ -10,6 +10,10 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
  }
 
  .header {
@@ -70,15 +74,13 @@ body {
   color: #1F2937; 
  }
 
-.player{
-  width: 35%;
+.player, .CPU{
+  min-width: 142px;
 }
 
 .bottom{
   display: flex;
   text-align: center;
-  bottom: -68px;
-  position: relative;
   justify-content: center;
   align-items: center;
   padding: 15px;
@@ -88,10 +90,6 @@ body {
   color: white;
   
  }
-
-.CPU{
-  width: 35%;
-}
 
  .bottom img{
   max-height: 22px;
