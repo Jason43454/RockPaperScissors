@@ -70,7 +70,11 @@ body {
   color: #1F2937; 
  }
 
- .bottom{
+.player{
+  width: 35%;
+}
+
+.bottom{
   display: flex;
   text-align: center;
   bottom: -68px;
@@ -84,6 +88,10 @@ body {
   color: white;
   
  }
+
+.CPU{
+  width: 35%;
+}
 
  .bottom img{
   max-height: 22px;
