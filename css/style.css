@@ -2,7 +2,7 @@
    box-sizing: border-box;
    margin: 0;
    padding: 0;
- }
+}
 
 body {
     background-image: url(https://images.pexels.com/photos/479453/pexels-photo-479453.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
@@ -14,23 +14,21 @@ body {
     flex-direction: column;
     min-height: 100vh;
     justify-content: space-between;
- }
+}
 
  .header {
     color: red;
     text-align: center;
     background-color: #1F2937;
     position: sticky;
-    padding: 25px 0px;
-    
-    
- }
+    padding: 25px 0px; 
+}
 
  .layer1 {
    display: flex;
    margin: 90px 0px;
    justify-content: center;
- }
+}
 
 .icons{
     display: flex;
@@ -38,8 +36,7 @@ body {
     background-color: lightgrey;
     border: solid #1F2937;
     padding: 20px;
-  }
-
+}
 
  .image {
    border: solid #1F2937;
@@ -48,22 +45,22 @@ body {
    background-color: white;
    transition: all 0.3s ease;
    min-width: 100px;
- }
+}
 
  img {
   height: 250px;
   max-width: 100%;
   min-width: 50px;
- }
+}
 
  .content {
   text-align: center;
   color: #1F2937;
- }
+}
 
  .content h1 {
   margin-bottom: 20px;
- }
+}
 
 .layer2 {
   display: flex;
@@ -72,7 +69,7 @@ body {
   gap: 4rem;
   padding: 40px 0px;
   color: #1F2937; 
- }
+}
 
 .player, .CPU{
   min-width: 142px;
@@ -89,13 +86,13 @@ body {
   background-color: #1F2937;
   color: white;
   
- }
+}
 
  .bottom img{
   max-height: 22px;
   max-width: 22px;
   min-width: 0;
- }
+}
  
  .back.active {
   background-color: black;
@@ -104,7 +101,7 @@ body {
   bottom: 0;
   width: 100%;
   position: fixed;
- }
+}
 
 .popup.active{
   position:fixed;

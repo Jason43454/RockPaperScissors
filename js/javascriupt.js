@@ -15,9 +15,11 @@ function playGame (icon){
   document.querySelector(".CPU img").setAttribute("src", document.querySelector(`[alt=${computerChoice}]`).getAttribute("src"))
   const playerChoice=icon.firstElementChild.getAttribute("alt");
   document.querySelector(".player img").setAttribute("src", document.querySelector(`[alt=${playerChoice}]`).getAttribute("src"))
+  const result=document.querySelector(".result");
+  const outcome=document.querySelector(".outcome");
     if (playerChoice==computerChoice){
-      document.querySelector(".result").textContent=`! Its a tie ! `;
-      document.querySelector(".outcome").textContent="No winners today";
+      result.textContent=`! Its a tie ! `;
+      outcome.textContent="No winners today";
     }
  
     else if (playerChoice=="rock" && computerChoice=="scissors" ||
@@ -25,15 +27,15 @@ function playGame (icon){
              playerChoice=="paper" && computerChoice=="rock"){
                ++playerScore;
                pscore.textContent=`Player: ${playerScore}`
-               document.querySelector(".result").textContent=`! You Won ! `;
-               document.querySelector(".outcome").textContent=`Well done ${playerChoice} beats ${computerChoice} `;
+               result.textContent=`! You Won ! `;
+               outcome.textContent=`Well done ${playerChoice} beats ${computerChoice} `;
   
     }
     else{
       ++ComputerScore;
       cscore.textContent=`CPU: ${ComputerScore}`
-      document.querySelector(".result").textContent=`! You Lost ! `;
-      document.querySelector(".outcome").textContent=`Better luck next time ${playerChoice} beats ${computerChoice}`;
+      result.textContent=`! You Lost ! `;
+      outcome.textContent=`Better luck next time ${playerChoice} beats ${computerChoice}`;
     }   
   }
 
@@ -50,18 +52,22 @@ function runGame(){
     else 
     result=`Sorry you lost GAME OVER`;
 
+  // create and alocate the replay screen
   const background=document.querySelector(".back");
-  background.classList.add("active");
   const popup=document.createElement("div");
   const message=document.createElement("p");
-  message.textContent=result;
-  message.classList.add("message");
-  popup.appendChild(message);
   const reset=document.createElement("button");
-  reset.addEventListener("click",function(){window.location.reload()});
-  reset.textContent="Play again";
-  popup.appendChild(reset);
+
+  background.classList.add("active");
+  message.classList.add("message");
   popup.classList.add("popup", "active");
+
+  message.textContent=result;
+  reset.textContent="Play again";
+
+  popup.appendChild(message);
+  reset.addEventListener("click",function(){window.location.reload()});
+  popup.appendChild(reset);
   document.querySelector("body").appendChild(popup);
 }
   }
